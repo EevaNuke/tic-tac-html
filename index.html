@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html">
+	<meta http-equiv="content-language" content="pl">
+	<meta name="author" content="Sylwia Iwaniuk">
+	<script src="react.development.js" crossorigin></script>
+	<script src="react-dom.development.js" crossorigin></script>
+	<title> Tic-Tac React </title>
+	<!-- <link rel="icon" type="image/svg" href="img/black-logo.svg"> -->
+	<link rel="stylesheet" href="index.css">
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+	<script src="index.js"></script>
+</body>
+</html>
+
+<script>
+window.addEventListener('mousedown', function(e) {
+  document.body.classList.add('mouse-navigation');
+  document.body.classList.remove('kbd-navigation');
+});
+window.addEventListener('keydown', function(e) {
+  if (e.keyCode === 9) {
+    document.body.classList.add('kbd-navigation');
+    document.body.classList.remove('mouse-navigation');
+  }
+});
+window.addEventListener('click', function(e) {
+  if (e.target.tagName === 'A' && e.target.getAttribute('href') === '#') {
+    e.preventDefault();
+  }
+});
+window.onerror = function(message, source, line, col, error) {
+  var text = error ? error.stack || error : message + ' (at ' + source + ':' + line + ':' + col + ')';
+  errors.textContent += text + '\n';
+  errors.style.display = '';
+};
+console.error = (function(old) {
+  return function error() {
+    errors.textContent += Array.prototype.slice.call(arguments).join(' ') + '\n';
+    errors.style.display = '';
+    old.apply(this, arguments);
+  }
+})(console.error);
+</script>
+
+<script type="text/javascript" language="javascript">
+<!-- 
+
+-->
+</script>
